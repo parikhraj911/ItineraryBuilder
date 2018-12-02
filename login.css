@@ -1,0 +1,12 @@
+@charset "utf-8";
+#headings {
+	text-align: center;
+	font-size: 50px;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"
+}
+#login {
+	text-align: center;
+}
+body {
+	background-color: salmon;
+}
