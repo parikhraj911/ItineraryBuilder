@@ -1,6 +1,18 @@
 $(document).ready(() => {
+    
+    
+    
     var root= "http://comp426.cs.unc.edu:3001/";
     var instances=[];
+    
+    $.ajax(root+"/sessions",{
+       type: "POST";
+       xhrFields: {withCredentials: true},
+       "user": {
+        "username": "nick7",
+        "password": "airplane"
+          }
+    });
     
     //makes sure the minimum data available is today
     var today = new Date();
