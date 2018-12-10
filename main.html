@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <title>CM Airlines</title>
 <link href="main.css" rel="stylesheet" type="text/css">
+<script
+ src="https://code.jquery.com/jquery-3.3.1.min.js"
+ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+ crossorigin="anonymous"></script>
+<script type = "text/javascript" src="main.js"></script>
 </head>
 
 <body>
@@ -22,10 +27,32 @@
 	<h1>
 		It is a Beautiful Day to Fly!
 		</h1>
-	<h5>Itinerary Planner</h5>
 </section>
 	<section id = "input">
-	
+	<div id = "labels">
+		<h4>Date: </h4>
+		<h4>Departure Airport Code: </h4>
+		<h4>Arrival Airport Code: </h4>
+		<button type="button" id= "find"> Find My Flight</button> 
+	</div>
+	<div id = "boxes">
+		<input type = "date" id = "date"  min='2018-10-12' placeholder = "Date" > <span class="validity"></span> <p></p>
+		<input type = "text" id = "out" placeholder = "Departure Airport" > <p></p>
+		<input type = "text" id = "in" placeholder = "Arrival Airport" ><p></p>
+		
+
+	</div>
+	<div id = "visual">
+		<h2> this is visual</h2>
+	</div> 
+</section>
+<section id = "info">
+	<div id = "interactive">
+		
+	</div>
+	<div id = "butt">
+			<button type="button" id= "submit">Make My Itinerary</button> 
+	</div>
 </section>
 </body>
 </html>
