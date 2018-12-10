@@ -6,7 +6,7 @@ $(document).ready(() => {
     var instances=[];
     
     $.ajax(root+"/sessions",{
-       type: "POST";
+       type: "POST",
        xhrFields: {withCredentials: true},
        "user": {
         "username": "nick7",
@@ -103,8 +103,40 @@ $(document).on('click','#find',()=>{
     }
 
     for(i=0;i<output.length;i++){
-        $("#options").append("<div id="+output[i].flight_id+">Flight: "+output[i].flight_id+"</div>");
+        let newDiv=("<div id="+output[i].flight_id+">Flight: "+output[i].flight_id+"</div>");
+        for(i=0;i<output.length;i++){
+            $.ajax(root+'/flights?filter[id]='+output[i].flight_id,{
+                type: 'GET',
+                xhrFields: {withCredentials: true},
+                success: (response)=>{
+                    $.ajax(root+'/airlines?filter[id]='+response.data.airline_id,{
+                        type: 'GET',
+                        xhrFields: {withCredentials: true},
+                        success: (response)=>{
+                        $(newDiv).attr("airline",response.data.name);
+                        }
+                    });
+             }
+            });
+        }
+
+
+        $("#options").append(newDiv);
     }
+
+});
+    
+    $("#airline").keyup(function(){
+let filterVal=$(this).val();
+let airlineNames=[]
+for(i=0;i<instances.length;i++){
+   let cDiv= $("body").find($("#"+instances[i].flight_id));
+   if(!cDiv.attr("airline").toLowerCase().includes(filterVal.toLowerCase())){
+    $("body").find($("#"+instances[i].flight_id)).hide();
+   }else{
+    $("body").find($("#"+instances[i].flight_id)).show();
+   }
+}
 
 });
     
