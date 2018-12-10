@@ -1,4 +1,68 @@
+
+
 var root= "http://comp426.cs.unc.edu:3001/";
+var instances=[];
+
+
+//assuming a global array of selected flight instances and a button with id=submitButton
+$(document).on('click', '#submitButton',()=>{
+    $("body").empty();
+    $("body").append('<h1>Flight Done</h1>');
+    $("body").append("<div id='flightDataDiv></div>'");
+    for(i=0;i<flights.length;i++){
+        let newDiv="<div class='flightDataSub'></div>";
+        let flight=-1;
+        let arrivalAirport=-1;
+        let departureAirport=-1;
+        let airline=-1;
+        let flightID=instances[i].flight_id;
+
+        $.ajax(root+'/flights?filter[id]='+flightID,{
+            type: "GET",
+            xhrFields: {withCredentials: true},
+            success: (response)=>{
+                flight=response.data;
+            }
+        });
+
+        $.ajax(root+'/airports?filter[id]='+flight.departure_id,{
+            type: "GET",
+            xhrFields: {withCredentials: true},
+            success: (response)=>{
+                departureAirport=response.data;
+            }
+        });
+
+        $.ajax(root+'/airports?filter[id]='+flight.arrival_id,{
+            type: "GET",
+            xhrFields: {withCredentials: true},
+            success: (response)=>{
+                arrivalAirport=response.data;
+            }
+        });
+
+        $.ajax(root+'/airlines?filter[id]='+flight.airline_id,{
+            type: "GET",
+            xhrFields: {withCredentials: true},
+            success: (response)=>{
+                airline=response.data;
+            }
+        });
+
+        $(newDiv).append("<p> Departing from "+departureAirport.name+" at "+flight.departs_at+" on flight "+flight.number+"</p>");
+        $(newDiv).append("<p> Arriving at "+arrivalAirport.name+" at "+flight.arrives_at+".</p>");
+        $(newDiv).append("<p>Your airline for this flight is "+airline.name+"</p>");
+        $("#flightDataDiv").append(newDiv);
+        $("#flightDataDiv").append("<br>");
+    }
+
+});
+
+
+
+
+
+
 
 //this might not be necessary
 let convertCodeToID=function(code){
