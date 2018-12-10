@@ -45,7 +45,7 @@ $(document).on('click', '#submit',()=>{
             type: "GET",
             xhrFields: {withCredentials: true},
             success: (response)=>{
-                flight=response.data;
+                flight=response;
             }
 });
     }
@@ -62,31 +62,33 @@ $(document).on('click','#find',()=>{
 	let putativeInstances=[];
 	let output=[];
 	
-	$.ajax(root+'/airports?filter[code]='+_departureAirport,{
+	$.ajax(root+'/airports?filter[code]='+_departureAirport+'',{
 	type: "GET",
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	_outID=response.data.id;
+    _outID=response[0].id;
+    console.log(_outID);
 	}
 	});
-	$.ajax(root+'/airports?filter[code]='+_arrivalAirport,{
+	$.ajax(root+'/airports?filter[code]='+_arrivalAirport+'',{
 	type: "GET",
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	_inID=response.data.id;
+    _inID=response[0].id;
+    console.log(_inID);
 	}
 	});
 	
-	$.ajax(root+'/flights?filter[departure_id]='+_outID,{
+	$.ajax(root+'/flights?filter[departure_id]='+_outID+'',{
 	type: "GET",
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	departureFilter=response.data;
+    departureFilter=response;
 	}
 	});
 	
 	for(i=0;i<departureFilter.length;i++){
-	let putativeFlight=departureFilter.pop();
+	let putativeFlight=departureFilter[i];
 	if(putativeFlight.arrival_id==_inID){
 	putativeFlights.push(putativeFlight);
 	}
@@ -102,7 +104,7 @@ $(document).on('click','#find',()=>{
 	type: "GET",
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	putativeInstances.concat(response.data);
+	putativeInstances.concat(response);
 	}
 	});
 	}
@@ -131,11 +133,11 @@ $(document).on('click','#find',()=>{
 	type: 'GET',
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	$.ajax(root+'/airlines?filter[id]='+response.data.airline_id,{
+	$.ajax(root+'/airlines?filter[id]='+response.airline_id,{
 	type: 'GET',
 	xhrFields: {withCredentials: true},
 	success: (response)=>{
-	$(newDiv).attr("airline",response.data.name);
+	$(newDiv).attr("airline",response.name);
 	}
 	});
 	}
