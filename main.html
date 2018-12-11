@@ -9,6 +9,8 @@
  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
  crossorigin="anonymous"></script>
 <script type = "text/javascript" src="main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHtQNGUrmC2-dNO6uHEYtDFIAmWISCKNc&libraries=places&callback=initAutocomplete"
+async defer></script>
 </head>
 
 <body>
@@ -38,13 +40,16 @@
 	<div id = "boxes">
 		<input type = "date" id = "date"  min='2018-10-12' placeholder = "Date" > <span class="validity"></span> <p></p>
 		<input type = "text" id = "out" placeholder = "Departure Airport" > <p></p>
-        <input type = "text" id = "in" placeholder = "Arrival Airport" ><p></p>
-        <input type = "text" disabled=true id = "airline" placeholder = "Preferred Airline" ><p></p>
+		<input type = "text" id = "in" placeholder = "Arrival Airport" ><p></p>
 		
 
 	</div>
+
+
+
 	<div id = "visual">
-		<h2> this is visual</h2>
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
 	</div> 
 </section>
 <section id = "info">
