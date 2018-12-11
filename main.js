@@ -27,6 +27,7 @@ $(document).ready(() => {
     document.getElementById("date").setAttribute("min", today);
 
 
+
 //assuming a global array of selected flight instances and a button with id=submitButton
 $(document).on('click', '#submit',()=>{
     $("body").empty();
