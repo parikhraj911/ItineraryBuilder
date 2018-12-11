@@ -2,7 +2,8 @@
 #head {
     text-align: center; 
     font-size: 30px;
-	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+    background-color: #f1f1f1;
 }
 body {
     background-image: url(clouds.jpg);
@@ -12,7 +13,7 @@ body {
   background-size: cover;
 }
 .dropbtn {
-    background-color:paleturquoise
+    background-color:white;
 	text-decoration: bold;
     padding: 16px;
     font-size: 16px;
@@ -51,5 +52,28 @@ body {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+#input{
+    display: flex;
+}
+#boxes{
+    display: inline-block;
+    flex: 1;
+    margin-top: 21px;
+    margin-left: 10px;
+}
+#visual{
+    display: inline-block;
+    flex: 2;
+}
+#butt{
+    text-align: center;
+}
+#head2{
+    text-align: center;
+    background-color: white;
+}
+#interactive{
+    text-align: center;
+}
 
 
