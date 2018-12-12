@@ -15,17 +15,7 @@ async defer></script>
 
 <body>
 <div id='bigBox'>
-<section id = "nav">
-	 <div class="dropdown">
-  			<button class="dropbtn">Nav</button>
-  				<div class="dropdown-content">
-    			<a href="#">Plan Your Trip</a>
-    			<a href="#">Post about Your Trip</a>
-    			<a href="#">Maps</a>
- 		 </div>
-  </div> 	
-	
-	</section>
+
 <section id = "head">
 	<h1>
 		It is a Beautiful Day to Fly!
@@ -42,13 +32,12 @@ async defer></script>
 		<button type="button" id= "find"> Find My Flight</button> 
 	</div>
 	<div id = "boxes">
-		<input type = "date" id = "date"  min='2018-10-12' placeholder = "Date" > <span class="validity"></span> <p></p>
-		<input type = "text" id = "out" placeholder = "Departure Airport" > <p></p>
-		<input type = "text" id = "in" placeholder = "Arrival Airport" ><p></p>
-		<input type = "text" id = "first" placeholder = "First Name" > <p></p>
-		<input type = "text" id = "last" placeholder = "Last Name" ><p></p>
-		<input type = "text" id = "age" placeholder = "Age" > <p></p>
-		<input type = "text" id = "gender" placeholder = "Gender" > <p></p>
+		<input type = "date"  class = "f" id = "date"  min='2018-10-12' placeholder = "Date" > <span class="validity"></span> <p></p>
+		<input type = "text" class = "f" id = "out" placeholder = "Departure Airport" > <p></p>
+		<input type = "text" class = "f" id = "in" placeholder = "Arrival Airport" ><p></p>
+		<input type = "text" class = "f" id = "first" placeholder = "First Name" > <p></p>
+		<input type = "text" class = "f" id = "last" placeholder = "Last Name" ><p></p>
+		<input type = "text" class = "f" id = "age" placeholder = "Age" > <p></p>
 
 
 	</div>
@@ -63,12 +52,13 @@ async defer></script>
 <section id = "info">
 	<div id = "filter">
 			<input type = "text" id = "airlines" placeholder = "Filter through Airlines" >
+			<button type="button" id= "submit">Make My Itinerary</button> 
 	</div>
 	<div id = "interactive">
 	
 	</div>
 	<div id = "butt">
-			<button type="button" id= "submit">Make My Itinerary</button> 
+			<!-- <button type="button" id= "submit">Make My Itinerary</button>  -->
 			<button type="button" id= "rent">Build Your Own Flight</button> 
 	</div>
 </section>
