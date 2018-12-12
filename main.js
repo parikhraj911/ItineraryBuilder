@@ -522,13 +522,13 @@ for(i=0;i<output.length;i++){
           }
       });
 let s;
-      $.ajax(root+'airlines?filter[id]='+flight.airline_id,{
+      $.ajax(root+'airlines/='+flight.airline_id,{
           type: 'GET',
           async:false,
           xhrFields: {withCredentials: true},
           success: (response)=>{
-              console.log(response[0].name);
-              s=response[0].name;
+              console.log(response.name);
+              s=response.name;
           }
           });
   instances.push(output[i]);
