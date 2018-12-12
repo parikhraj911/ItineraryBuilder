@@ -52,6 +52,10 @@ body {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+#find{
+  border-radius: 12px;
+}
 #input{
     display: flex;
     height: 300%;
@@ -59,7 +63,7 @@ body {
 #boxes{
     display: inline-block;
     flex: 1;
-    margin-top: 21px;
+    margin-top: 22px;
     margin-left: 10px;
 }
 #visual{
@@ -67,16 +71,24 @@ body {
     flex: 2;
    
 }
-#butt{
-    text-align: center;
-}
+
 #head2{
     text-align: center;
     background-color: white;
 }
-#interactive{
-    text-align: center;
+#filter{
+  text-align: center;
 }
+#interactive{
+  text-align: center;
+}
+#butt{
+  text-align: center;
+}
+#submit{
+  border-radius: 12px;
+}
+
 
 /* google maps stuff */
 #map {
@@ -153,3 +165,9 @@ body {
   #target {
     width: 345px;
   }
+
+#info{
+  margin-top: 50px;
+}
+
+
