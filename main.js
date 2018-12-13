@@ -522,7 +522,7 @@ for(i=0;i<output.length;i++){
           }
       });
 let s;
-      $.ajax(root+'airlines/='+flight.airline_id,{
+      $.ajax(root+'airlines/'+flight.airline_id,{
           type: 'GET',
           async:false,
           xhrFields: {withCredentials: true},
